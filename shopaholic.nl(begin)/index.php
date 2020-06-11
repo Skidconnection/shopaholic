@@ -46,6 +46,35 @@
                 <div class= "Right">
                     <h1>RECHTS</h1>
                     <!-- Inhoudelijk pas te zien, nadat je op de link inloggen hebt gedrukt -->
+                    <?php
+                      $servername = "localhost";
+                      $username = "root";
+                      $password = "";
+                      $db =  "shopaholiclogin";
+
+                      $conn = new mysqli($servername, $username, $password, $db);
+
+                      if (!$conn) {
+                        // error connection
+                        die ("Error on the connection" . $conn->connect_error);
+                      }
+                      if($_SERVER['REQUEST_METHOD'] == "POST")
+                      {
+                      $username = mysqli_real_escape_string($conn, $_POST['user']);
+                      $password = mysqli_real_escape_string($conn, $_POST['pass']);
+                      $password = md5($password);
+                      $sql = "SELECT * FROM userpass WHERE user='$username' AND '$password'";
+                      $query = mysqli_query($conn, $sql);
+                      $res=mysqli_num_rows($query);
+
+                      if ($res == 1) {
+                        header("location: index.php");
+                      }
+                      else {
+                        echo "Foute gebruikersnaam of wachtwoord";
+                      }
+                    }
+                     ?>
                     <div class="modal">
                         <div class="modal-content">
                             <span class="close-button">&times;</span>
@@ -53,16 +82,17 @@
                                     <form action="" class="form">
                                         <h2>Inloggen</h2>
                                         <div class="input-group">
-                                            <input type="text" name="loginUser"id="loginUser" required>
+                                            <input type="text" name="user" id="loginUser" required>
                                             <label for="user">Gebruikersnaam</label>
                                         </div>
 
                                         <div class="input-group">
-                                            <input type="password" name="loginPassword" id="loginPassword" required>
+                                            <input type="password" name="pass" id="loginPassword" required>
                                             <label for="pass">Wachtwoord</label>
                                         </div>
 
-                                        <input type="submit" value="Login" class="submit-btn">
+                                        <input type="submit" name="submit" value="Login" class="submit-btn">
+                                        
                                         <a href="#forgot-pw" class="forgot-pw">Wachtwoord vergeten?</a> </form>
 
                                     <div id="forgot-pw">
