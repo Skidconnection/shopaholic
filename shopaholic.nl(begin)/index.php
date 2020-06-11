@@ -68,18 +68,19 @@
                       $res=mysqli_num_rows($query);
 
                       if ($res == 1) {
-                        header("location: index.php");
+                        header("location: admin/.php");
                       }
                       else {
                         echo "Foute gebruikersnaam of wachtwoord";
                       }
                     }
-                     ?>
+                    ?>
+                    <!doctype html>
                     <div class="modal">
                         <div class="modal-content">
                             <span class="close-button">&times;</span>
                                 <div class="login-wrapper">
-                                    <form action="" class="form">
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form">
                                         <h2>Inloggen</h2>
                                         <div class="input-group">
                                             <input type="text" name="user" id="loginUser" required>
@@ -92,8 +93,9 @@
                                         </div>
 
                                         <input type="submit" name="submit" value="Login" class="submit-btn">
-                                        
-                                        <a href="#forgot-pw" class="forgot-pw">Wachtwoord vergeten?</a> </form>
+
+                                        <a href="#forgot-pw" class="forgot-pw">Wachtwoord vergeten?</a>
+                                      </form>
 
                                     <div id="forgot-pw">
                                         <form action="" class="form">
@@ -108,7 +110,6 @@
                                     </div>
                                 </div>
                         </div>
-                    </div>
                     <!-- Script direct onder de code, anders krijg je een foutcode: myFunction can't be Null -->
                         <script>
                             var modal = document.querySelector(".modal"); //Selecteer modal
