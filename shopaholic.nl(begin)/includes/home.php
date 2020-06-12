@@ -1,8 +1,45 @@
 <div class="content-include_center">
+  <a href="#">
     <div class="product-Info">
-
-      <h6>Product 1</h6>
+      <h6>Off White industrial Belt</h6>
         <img src="img/product-img/off.jpg" alt="">
-      <p>€102,00</p>
+      <p>€162,00</p>
     </div>
+  </a>
+  <a href="#">
+    <div class="product-Info">
+      <h6>Off White industrial Belt</h6>
+        <img src="img/product-img/off.jpg" alt="">
+      <p>€162,00</p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="product-Info">
+      <h6>Off White industrial Belt</h6>
+        <img src="img/product-img/off.jpg" alt="">
+      <p>€162,00</p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="product-Info">
+      <h6>Off White industrial Belt</h6>
+        <img src="img/product-img/off.jpg" alt="">
+      <p>€162,00</p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="product-Info">
+      <h6>Off White industrial Belt</h6>
+        <img src="img/product-img/off.jpg" alt="">
+      <p>€162,00</p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="product-Info">
+      <h6>Off White industrial Belt</h6>
+        <img src="img/product-img/off.jpg" alt="">
+      <p>€162,00</p>
+    </div>
+  </a>
+  
 </div>

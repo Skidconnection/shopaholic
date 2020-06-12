@@ -38,28 +38,22 @@
     <!-- Links content content -->
             <aside class="aside aside-1">
                 <div class= "Left">
-                    <h1>LINKS</h1>
+                    <h1>Product info</h1>
                 </div>
             </aside>
     <!-- Rechts content -->
             <aside class="aside aside-2">
                 <div class= "Right">
-                    <h1>RECHTS</h1>
+                    <h1></h1>
                     <!-- Inhoudelijk pas te zien, nadat je op de link inloggen hebt gedrukt -->
                     <?php
-                      $servername = "localhost";
-                      $username = "root";
-                      $password = "";
-                      $db =  "shopaholiclogin";
 
-                      $conn = new mysqli($servername, $username, $password, $db);
+                    include('connectionLogin.php');
+                    session_start();
 
-                      if (!$conn) {
-                        // error connection
-                        die ("Error on the connection" . $conn->connect_error);
-                      }
                       if($_SERVER['REQUEST_METHOD'] == "POST")
                       {
+                      var_dump($_POST);
                       $username = mysqli_real_escape_string($conn, $_POST['user']);
                       $password = mysqli_real_escape_string($conn, $_POST['pass']);
                       $password = md5($password);
@@ -68,7 +62,7 @@
                       $res=mysqli_num_rows($query);
 
                       if ($res == 1) {
-                        header("location: admin/.php");
+                        header("location: .php");
                       }
                       else {
                         echo "Foute gebruikersnaam of wachtwoord";
@@ -80,7 +74,7 @@
                         <div class="modal-content">
                             <span class="close-button">&times;</span>
                                 <div class="login-wrapper">
-                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form">
+                                    <form method="post" class="form">
                                         <h2>Inloggen</h2>
                                         <div class="input-group">
                                             <input type="text" name="user" id="loginUser" required>
@@ -97,7 +91,7 @@
                                         <a href="#forgot-pw" class="forgot-pw">Wachtwoord vergeten?</a>
                                       </form>
 
-                                    <div id="forgot-pw">
+                        <!--      <div id="forgot-pw">
                                         <form action="" class="form">
                                             <a href="#" class="close">&times;</a>
                                             <h2>Reset wachtwoord</h2>
@@ -107,7 +101,7 @@
                                             </div>
                                             <input type="submit" value="Submit" class="submit-btn">
                                         </form>
-                                    </div>
+                                    </div>-->
                                 </div>
                         </div>
                     <!-- Script direct onder de code, anders krijg je een foutcode: myFunction can't be Null -->
@@ -132,7 +126,7 @@
                         </script>
                 </div>
             </aside>
-    <footer class="footer">Footer
+    <footer class="footer">
         <?php include("includes/footer.php")?>
     </footer>
 
